@@ -10,139 +10,69 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <title>订单统计</title>
-  <link rel="stylesheet" href="${pageContext.request.contextPath }/static/layui/css/layui.css">
-  <script src="${pageContext.request.contextPath }/static/layui/layui.js"></script>
-  <script type="text/javascript" src="${pageContext.request.contextPath }/static/js/echarts.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.bootcss.com/layui/2.5.6/css/layui.min.css">
+  <script src="https://cdn.bootcss.com/layui/2.5.6/layui.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
 </head>
 <body>
-<div class="layui-container">
-  <div class="layui-row layui-col-space15">
-    <div class="layui-col-md6">
-      <div class="layui-card">
-        <div class="layui-card-header">柱状图</div>
-        <div class="layui-card-body">
-          <div id="bar-chart" style="height: 300px;"></div>
-        </div>
-      </div>
-    </div>
-    <div class="layui-col-md6">
-      <div class="layui-card">
-        <div class="layui-card-header">折线图</div>
-        <div class="layui-card-body">
-          <div id="line-chart" style="height: 300px;"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<div id="order-chart" style="height: 400px;"></div>
+<div id="order-line" style="height: 400px;"></div>
 
-<script type="text/javascript">
-  layui.use(['layer'], function () {
-
-    var layer = layui.layer;
-
-    // 异步加载数据
+<script>
+  // 获取订单信息
+  layui.use(['jquery'], function () {
+    var $ = layui.jquery;
     $.ajax({
-      type: "GET",
-      url: "/orderInfo", // 数据接口
-      success: function(data) {
-        // 将数据格式化为 ECharts 需要的格式
-        // 柱状图
-        var barChart = echarts.init(document.getElementById('bar-chart'));
-        var barOption = {
+      url: '/orderInfo',
+      type: 'get',
+      success: function (data) {
+        var counts = data.counts;
+        var times = data.times;
+
+        // 绘制柱状图
+        var orderChart = echarts.init(document.getElementById('order-chart'));
+        var option = {
           title: {
-            text: '订单统计'
+            text: '最近七天订单量'
           },
           tooltip: {},
-          legend: {
-            data: ['订单数']
-          },
           xAxis: {
-            type: 'category',
-            data: data.times // 使用后端传来的时间作为 x 轴数据
+            data: times
           },
-          yAxis: {
-            type: 'value'
-          },
+          yAxis: {},
           series: [{
-            name: '订单数',
-            data: data.counts, // 使用后端传来的订单数量作为 y 轴数据
-            type: 'line'
+            name: '订单量',
+            type: 'bar',
+            data: counts
           }]
         };
-        barChart.setOption(barOption);
-        var option = {
-          xAxis: {
-            type: 'category',
-            data: data.times // 使用后端传来的时间作为 x 轴数据
-          },
-          yAxis: {
-            type: 'value'
-          },
-          series: [{
-            data: data.counts, // 使用后端传来的订单数量作为 y 轴数据
-            type: 'line'
-          }]
-        };
+        orderChart.setOption(option);
 
-        // 使用刚指定的配置项和数据显示图表。
-        myChart.setOption(option);
+        // 绘制折线图
+        var orderLine = echarts.init(document.getElementById('order-line'));
+        var option2 = {
+          title: {
+            text: '最近七天订单量趋势'
+          },
+          tooltip: {},
+          xAxis: {
+            data: times
+          },
+          yAxis: {},
+          series: [{
+            name: '订单量',
+            type: 'line',
+            data: counts
+          }]
+        };
+        orderLine.setOption(option2);
       },
-      error: function() {
-        alert("获取数据失败！");
+      error: function () {
+        layer.msg('获取订单信息失败');
       }
     });
-    /*// 获取订单数据
-    var data = [];
-    for (var i = 0; i < 7; i++) {
-      data.push(Math.floor(Math.random() * 100));
-    }
-
-    // 柱状图
-    var barChart = echarts.init(document.getElementById('bar-chart'));
-    var barOption = {
-      title: {
-        text: '订单统计'
-      },
-      tooltip: {},
-      legend: {
-        data: ['订单数']
-      },
-      xAxis: {
-        data: ['第一天', '第二天', '第三天', '第四天', '第五天', '第六天', '第七天']
-      },
-      yAxis: {},
-      series: [{
-        name: '订单数',
-        type: 'bar',
-        data: data
-      }]
-    };
-    barChart.setOption(barOption);
-
-    // 折线图
-    var lineChart = echarts.init(document.getElementById('line-chart'));
-    var lineOption = {
-      title: {
-        text: '订单统计'
-      },
-      tooltip: {},
-      legend: {
-        data: ['订单数']
-      },
-      xAxis: {
-        data: ['第一天', '第二天', '第三天', '第四天', '第五天', '第六天', '第七天']
-      },
-      yAxis: {},
-      series: [{
-        name: '订单数',
-        type: 'line',
-        data: data
-      }]
-    };
-    lineChart.setOption(lineOption);*/
   });
 </script>
 </body>
