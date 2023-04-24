@@ -1,8 +1,8 @@
-package com.house.wym.service.impl;
+package com.house.personal.service.impl;
 
-import com.house.wym.dao.UserMapper;
-import com.house.wym.entity.Users;
-import com.house.wym.service.IUserService;
+import com.house.personal.dao.UserMapper;
+import com.house.personal.entity.Users;
+import com.house.personal.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

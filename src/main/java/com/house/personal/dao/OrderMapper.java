@@ -1,11 +1,12 @@
-package com.house.wym.dao;
+package com.house.personal.dao;
 
+import java.util.Date;
 import java.util.List;
 
 
-import com.house.wym.entity.Order;
-import com.house.wym.entity.Page;
-import com.house.wym.entity.UserOrder;
+import com.house.personal.entity.Order;
+import com.house.personal.entity.Page;
+import com.house.personal.entity.UserOrder;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
@@ -18,12 +19,12 @@ public interface OrderMapper {
 	 */
 	 public int addOrder(Order order);
 	 /**
-	  * 查询所有订单信息
+	  * 查询单个用户所有订单信息
 	  * @return
 	  */
 	 public List<UserOrder> findAllOrder(Page page);
 	 /**
-	  * 查询所有订单数
+	  * 查询单个用户所有订单数
 	  * @return
 	  */
 	 public int getOrderCount(int uID);
@@ -33,5 +34,7 @@ public interface OrderMapper {
 	  * @return
 	  */
 	 public int deleteOrder(int oID);
+
+	 public int getOrderCountByDate(Date orderTime);
 	 
 }

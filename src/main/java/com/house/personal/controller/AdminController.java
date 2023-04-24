@@ -1,12 +1,14 @@
-package com.house.wym.controller;
+package com.house.personal.controller;
 
-import java.util.List;
+import java.util.*;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.house.wym.entity.*;
-import com.house.wym.service.IAdminService;
-import com.house.wym.service.IHouserService;
+import com.house.personal.entity.*;
+import com.house.personal.service.IAdminService;
+import com.house.personal.service.IHouserService;
+import com.house.personal.service.IOrderService;
+import com.house.personal.util.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +24,10 @@ public class AdminController {
 
 	@Autowired
 	private IHouserService dao;
+
+	@Autowired
+	private IOrderService orderService;
+
 
 	/**
 	 * 跳转到登录页
@@ -221,5 +227,51 @@ public class AdminController {
 		if (n > 0)
 			return "OK";
 		return "FAIL";
+	}
+
+	/**
+	 * 查询所有订单
+	 *
+	 * @return
+	 */
+	@RequestMapping("/toAllOrderPage")
+	public String toAllOrderPage() {
+		return "allorder";
+	}
+
+	@RequestMapping("/allOrderInfo")
+	@ResponseBody
+	public UserOrderData AllOrder(int page, int limit, HttpServletRequest request){
+		Page p = new Page();
+		p.setPage((page - 1) * limit);
+		p.setLimit(limit);
+		UserOrderData uod = new UserOrderData();
+		List<UserOrder> order = service.AllOrder(p);
+		uod.setCode(0);
+		uod.setCount(service.getAllOrderCount());
+		uod.setData(order);
+		uod.setMsg("200");
+		return uod;
+	}
+
+	@RequestMapping("/orderInfo")
+	@ResponseBody
+	public Map<String, Object> getOrderInfo() {
+		List<Integer> counts = new ArrayList<>(); // 存储订单数量
+		List<String> times = new ArrayList<>(); // 存储订单时间
+
+		// 获取最近七天的订单数量
+		for (int i = 6; i >= 0; i--) {
+			Date date = DateUtil.getDateBefore(new Date(), -i); // 获取前 i 天的日期
+			String time = DateUtil.formatDate(date, "yyyy-MM-dd"); // 将日期格式化为字符串
+			int count = orderService.getOrderCountByDate(date); // 获取该日期的订单数量
+			counts.add(count);
+			times.add(time);
+		}
+
+		Map<String, Object> result = new HashMap<>();
+		result.put("counts", counts);
+		result.put("times", times);
+		return result;
 	}
 }

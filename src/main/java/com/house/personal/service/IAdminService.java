@@ -1,10 +1,7 @@
-package com.house.wym.service;
+package com.house.personal.service;
 
 
-import com.house.wym.entity.Admin;
-import com.house.wym.entity.House;
-import com.house.wym.entity.Page;
-import com.house.wym.entity.Users;
+import com.house.personal.entity.*;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -65,4 +62,16 @@ public interface IAdminService {
 	 * @return
 	 */
 	public int updateAdminPwd(Admin admin);
+	/**
+	 * 查询所有订单信息
+	 * @return
+	 */
+	public List<UserOrder> AllOrder(Page page);
+
+	/**
+	 * 查询用户所有订单
+	 * @return
+	 */
+	public int getAllOrderCount();
+
 }

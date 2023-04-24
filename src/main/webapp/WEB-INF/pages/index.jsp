@@ -206,7 +206,7 @@
         
         $('.regist-btn').click(function () {
         	if($("input[name='uName']").val()!=""&&$("input[name='uPassword']").val()!=""&&$("input[name='uPhoneNumber']").val()!=""&&$("input[name='uNickName']").val()!=""){
-	            if($("input[name='uPhoneNumber']").val().length==11){
+                if($("input[name='uPhoneNumber']").val().length==11) {
                     $.post("regist",$('.form').serialize(),function (res) {
                         console.log(res)
                         if(res=='OK'){
@@ -217,8 +217,8 @@
                             layer.msg("注册失败,用户名以存在");
                         }
                     })
-                }else{
-                    layer.msg("注册失败,手机号码不存在");
+                } else {
+                    layer.msg("手机号码不存在");
                 }
         	}else{
         		layer.msg("请填写所有表单");

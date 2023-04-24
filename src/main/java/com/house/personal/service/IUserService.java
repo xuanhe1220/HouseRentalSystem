@@ -1,7 +1,7 @@
-package com.house.wym.service;
+package com.house.personal.service;
 
 
-import com.house.wym.entity.Users;
+import com.house.personal.entity.Users;
 import org.apache.ibatis.annotations.Mapper;
 
 

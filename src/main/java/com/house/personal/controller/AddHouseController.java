@@ -1,4 +1,4 @@
-package com.house.wym.controller;
+package com.house.personal.controller;
 
 import java.io.File;
 import java.util.HashMap;
@@ -9,8 +9,8 @@ import java.util.UUID;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import com.house.wym.entity.House;
-import com.house.wym.service.IHouserService;
+import com.house.personal.entity.House;
+import com.house.personal.service.IHouserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

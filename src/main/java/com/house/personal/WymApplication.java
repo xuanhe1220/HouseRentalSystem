@@ -1,4 +1,4 @@
-package com.house.wym;
+package com.house.personal;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

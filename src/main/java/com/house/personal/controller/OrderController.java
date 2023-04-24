@@ -1,11 +1,13 @@
-package com.house.wym.controller;
+package com.house.personal.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.house.wym.entity.*;
-import com.house.wym.service.IOrderService;
+import com.house.personal.entity.*;
+import com.house.personal.service.IAdminService;
+import com.house.personal.service.IOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,6 +30,9 @@ public class OrderController {
 	public String toUpdatepwdPage() {
 		return "updatepwd";
 	}
+
+	@RequestMapping("/orderstatisticschart")
+	public String toChartPage() {return "orderstatisticschart";}
 	
 	@RequestMapping("/addOrder")
 	@ResponseBody

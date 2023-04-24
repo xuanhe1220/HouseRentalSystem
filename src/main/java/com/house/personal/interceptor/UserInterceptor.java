@@ -1,11 +1,11 @@
-package com.house.wym.interceptor;
+package com.house.personal.interceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.house.wym.entity.Admin;
-import com.house.wym.entity.Users;
+import com.house.personal.entity.Admin;
+import com.house.personal.entity.Users;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 

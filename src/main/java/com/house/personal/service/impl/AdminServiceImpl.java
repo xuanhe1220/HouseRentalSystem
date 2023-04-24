@@ -1,13 +1,10 @@
-package com.house.wym.service.impl;
+package com.house.personal.service.impl;
 
 
 
-import com.house.wym.dao.AdminMapper;
-import com.house.wym.entity.Admin;
-import com.house.wym.entity.House;
-import com.house.wym.entity.Page;
-import com.house.wym.entity.Users;
-import com.house.wym.service.IAdminService;
+import com.house.personal.dao.AdminMapper;
+import com.house.personal.entity.*;
+import com.house.personal.service.IAdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -60,5 +57,13 @@ public class AdminServiceImpl implements IAdminService {
 	@Override
 	public int updateAdminPwd(Admin admin) {
 		return service.updateAdminPwd(admin);
+	}
+	@Override
+	public List<UserOrder> AllOrder(Page page) {
+		return service.AllOrder(page);
+	}
+	@Override
+	public int getAllOrderCount() {
+		return service.getAllOrderCount();
 	}
 }

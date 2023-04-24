@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.house.wym.dao.HouseMapper">
-	<resultMap type="com.house.wym.entity.House" id="BasicMap">
+<mapper namespace="com.house.personal.dao.HouseMapper">
+	<resultMap type="com.house.personal.entity.House" id="BasicMap">
 		<id column="h_id" jdbcType="INTEGER" property="hID" />
 		<result column="house_desc" jdbcType="VARCHAR" property="houseDesc"/>
 		<result column="house_model" jdbcType="VARCHAR" property="houseModel"/>
@@ -57,7 +57,7 @@
 			h_id=#{id}
 	</select>
 	
-	<insert id="addNewHouse" parameterType="com.house.wym.entity.House">
+	<insert id="addNewHouse" parameterType="com.house.personal.entity.House">
 		insert into 
 			t_house 
 		values
@@ -80,7 +80,7 @@
 	</insert>
 	
 	<!-- 查找用户发布的房源信息 -->
-	<select id="findHouseByUser" parameterType="com.house.wym.entity.Page" resultMap="BasicMap">
+	<select id="findHouseByUser" parameterType="com.house.personal.entity.Page" resultMap="BasicMap">
 		select * from t_house where publisher = #{publisher} limit #{page},#{limit}
 	</select>
 	
@@ -89,7 +89,7 @@
 		delete from t_house where h_id=#{hID}
 	</delete>
 	<!-- 修改用户发布的房源信息 -->
-	<update id="updateHouse" parameterType="com.house.wym.entity.House">
+	<update id="updateHouse" parameterType="com.house.personal.entity.House">
 		UPDATE t_house
 		SET 
 			house_desc = #{houseDesc},

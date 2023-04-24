@@ -1,9 +1,6 @@
-package com.house.wym.dao;
+package com.house.personal.dao;
 
-import com.house.wym.entity.Admin;
-import com.house.wym.entity.House;
-import com.house.wym.entity.Page;
-import com.house.wym.entity.Users;
+import com.house.personal.entity.*;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
@@ -69,4 +66,16 @@ public interface AdminMapper {
 	 * @return
 	 */
 	public int updateAdminPwd(Admin admin);
+
+	/**
+	 * 查询所有订单信息
+	 * @return
+	 */
+	public List<UserOrder> AllOrder(Page page);
+
+	/**
+	 * 查询所有订单数
+	 * @return
+	 */
+	public int getAllOrderCount();
 }

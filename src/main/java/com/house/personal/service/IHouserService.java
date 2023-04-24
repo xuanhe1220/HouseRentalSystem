@@ -1,7 +1,7 @@
-package com.house.wym.service;
+package com.house.personal.service;
 
-import com.house.wym.entity.House;
-import com.house.wym.entity.Page;
+import com.house.personal.entity.House;
+import com.house.personal.entity.Page;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

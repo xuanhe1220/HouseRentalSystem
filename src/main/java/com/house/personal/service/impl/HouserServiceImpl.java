@@ -1,11 +1,11 @@
-package com.house.wym.service.impl;
+package com.house.personal.service.impl;
 
 import java.util.List;
 
-import com.house.wym.dao.HouseMapper;
-import com.house.wym.entity.House;
-import com.house.wym.entity.Page;
-import com.house.wym.service.IHouserService;
+import com.house.personal.dao.HouseMapper;
+import com.house.personal.entity.House;
+import com.house.personal.entity.Page;
+import com.house.personal.service.IHouserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

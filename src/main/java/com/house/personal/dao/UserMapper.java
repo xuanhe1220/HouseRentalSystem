@@ -1,7 +1,7 @@
-package com.house.wym.dao;
+package com.house.personal.dao;
 
 
-import com.house.wym.entity.Users;
+import com.house.personal.entity.Users;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 

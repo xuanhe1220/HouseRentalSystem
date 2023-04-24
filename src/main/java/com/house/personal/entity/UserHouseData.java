@@ -1,4 +1,4 @@
-package com.house.wym.entity;
+package com.house.personal.entity;
 
 import java.util.List;
 
