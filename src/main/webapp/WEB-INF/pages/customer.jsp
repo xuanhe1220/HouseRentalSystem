@@ -12,7 +12,7 @@
 <body>
 <div class="layui-layout layui-layout-admin">
     <div class="layui-header">
-        <a href="welcome.html" target="iframe">
+        <a href="welcome" target="iframe">
             <div class="layui-logo">
                 <h2>个人中心</h2>
             </div>
@@ -46,6 +46,15 @@
                 <dl class="layui-nav-child">
                     <dd><a href="addHouse" target="iframe">发布房源信息</a></dd>
                     <dd><a href="toUserRentalPage" target="iframe">我发布的信息</a></dd>
+                </dl>
+            </li>
+        </ul>
+        <ul class="layui-nav layui-nav-tree" lay-filter="test">
+            <li class="layui-nav-item">
+                <a href="javascript:;">订单信息管理</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="addHouse" target="iframe">我的订单</a></dd>
+                    <dd><a href="toUserRentalPage" target="iframe">租赁申请</a></dd>
                 </dl>
             </li>
         </ul>
