@@ -42,7 +42,7 @@
 		delete from t_order where o_id=#{oID}
 	</delete>
 	<!-- 条件查询不同日期的订单数目 -->
-	<select id="getOrderCountByDate" resultType="int" parameterType="Date">
-		select count(o_id) from t_order where order_time=#{orderTime}
+	<select id="getOrderCountByDate" resultType="int" parameterType="String">
+		select count(o_id) from t_order where DATE(order_time) = #{orderTime}
 	</select>
 </mapper>

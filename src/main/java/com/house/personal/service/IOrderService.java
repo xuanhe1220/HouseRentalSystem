@@ -42,5 +42,5 @@ public interface IOrderService {
 	 * @param orderTime
 	 * @return
 	 */
-	public int getOrderCountByDate(Date orderTime);
+	public int getOrderCountByDate(String orderTime);
 }

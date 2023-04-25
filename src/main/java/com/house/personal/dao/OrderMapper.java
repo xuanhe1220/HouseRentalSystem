@@ -35,6 +35,6 @@ public interface OrderMapper {
 	  */
 	 public int deleteOrder(int oID);
 
-	 public int getOrderCountByDate(Date orderTime);
+	 public int getOrderCountByDate(String orderTime);
 	 
 }

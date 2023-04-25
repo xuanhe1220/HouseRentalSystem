@@ -262,9 +262,9 @@ public class AdminController {
 
 		// 获取最近七天的订单数量
 		for (int i = 6; i >= 0; i--) {
-			Date date = DateUtil.getDateBefore(new Date(), -i); // 获取前 i 天的日期
+			Date date = DateUtil.getDateBefore(new Date(), i); // 获取前 i 天的日期
 			String time = DateUtil.formatDate(date, "yyyy-MM-dd"); // 将日期格式化为字符串
-			int count = orderService.getOrderCountByDate(date); // 获取该日期的订单数量
+			int count = orderService.getOrderCountByDate(time); // 获取该日期的订单数量
 			counts.add(count);
 			times.add(time);
 		}

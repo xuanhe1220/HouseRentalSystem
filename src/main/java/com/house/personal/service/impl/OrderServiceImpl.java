@@ -36,6 +36,6 @@ public class OrderServiceImpl implements IOrderService {
 	}
 
 	@Override
-	public int getOrderCountByDate(Date orderTime){return mapper.getOrderCountByDate(orderTime);}
+	public int getOrderCountByDate(String orderTime){return mapper.getOrderCountByDate(orderTime);}
 
 }
