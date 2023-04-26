@@ -34,6 +34,11 @@ public class UserController {
 	public String toWelcomePage() {
 		return "welcome";
 	}
+
+	@RequestMapping("/paymentwindow")
+	public String toPayPage() {
+		return "paymentwindow";
+	}
 	
 	@RequestMapping("/toUpdateHousePage")
 	public String toUpdatePage(int hID,HttpServletRequest request) {

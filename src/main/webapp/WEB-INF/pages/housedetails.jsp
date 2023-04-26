@@ -302,8 +302,8 @@
             layer.open({
                 type: 2,
                 title: '二维码付款',
-                area: ['380px', '320px'],
-                content: '/path/to/paymentwindow.html',
+                area: ['500px', '500px'],
+                content: '/paymentwindow',
                 shadeClose: true,
                 btn: ['完成支付'],
                 btnAlign: 'c',
