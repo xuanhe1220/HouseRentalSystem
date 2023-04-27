@@ -56,7 +56,7 @@
             <li class="layui-nav-item">
                 <a href="javascript:;">订单信息管理</a>
                 <dl class="layui-nav-child">
-                    <dd><a href="${pageContext.request.contextPath }/toAllHousePage" target="iframe">创建订单</a></dd>
+                    <dd><a href="${pageContext.request.contextPath }/toAddOrderPage" target="iframe">创建订单</a></dd>
                     <dd><a href="${pageContext.request.contextPath }/toAllOrderPage" target="iframe">订单列表</a></dd>
                     <dd><a href="${pageContext.request.contextPath }/orderstatisticschart" target="iframe">订单统计</a></dd>
                 </dl>

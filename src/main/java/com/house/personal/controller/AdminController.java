@@ -274,4 +274,9 @@ public class AdminController {
 		result.put("times", times);
 		return result;
 	}
+
+	@RequestMapping("/toAddOrderPage")
+	public String toAddOrderPage() {
+		return "addorder";
+	}
 }

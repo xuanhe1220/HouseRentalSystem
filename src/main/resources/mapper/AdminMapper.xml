@@ -31,6 +31,7 @@
 		<result column="house_detailes_img" jdbcType="VARCHAR" property="houseDetailsImg"/>
 		<result column="publisher" jdbcType="VARCHAR" property="publisher"/>
 		<result column="publish_time" jdbcType="VARCHAR" property="publishTime"/>
+		<result column="house_exist" jdbcType="VARCHAR" property="exist"/>
 	</resultMap>
 
 	<resultMap type="com.house.personal.entity.UserOrder" id="AllOrderMapper">
@@ -62,12 +63,12 @@
 	</select>
 	
 	<select id="findAllHouse" resultMap="AllHouseMap" parameterType="com.house.personal.entity.Page">
-		select * from t_house limit #{page},#{limit}
+		select * from t_house where house_exist='y' limit #{page},#{limit}
 	</select>
 	
-	<delete id="deleteHouse" parameterType="int">
-		delete from t_house where h_id=#{hID}
-	</delete>
+	<update id="deleteHouse" parameterType="int">
+		update t_house set house_exist='n' where h_id=#{hID}
+	</update>
 	
 	<select id="findUserById" parameterType="int" resultMap="AllUserMap">
 		select * from t_users where u_id = #{uID}

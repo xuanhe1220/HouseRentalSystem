@@ -17,9 +17,14 @@
   <script src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
 </head>
 <body>
-<div id="order-chart" style="height: 400px;"></div>
-<div id="order-line" style="height: 400px;"></div>
 
+<div class="layui-fluid" style="margin-top: 40px;">
+  <fieldset class="layui-elem-field layui-field-title">
+    <legend style="font-size: 26px">订单统计</legend>
+  </fieldset>
+  <div id="order-chart" style="height: 400px;"></div>
+  <div id="order-line" style="height: 400px;"></div>
+</div>
 <script>
   // 获取订单信息
   layui.use(['jquery'], function () {

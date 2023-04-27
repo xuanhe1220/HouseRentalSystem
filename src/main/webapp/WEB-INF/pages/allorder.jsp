@@ -62,14 +62,14 @@
 
       if(layEvent === 'delete'){
         console.log(data.oID)
-        layer.confirm('确认删除当前数据吗？',{icon:5,shade:0.1},function(index){
+        layer.confirm('确定要撤销订单吗？',{icon:5,shade:0.1},function(index){
           $.post("deleteOrder",{oID:data.oID},function(success){
             if(success == "OK"){
               obj.del();
               dt.reload({
                 page:{curr:1}
               });
-              layer.msg("删除成功");
+              layer.msg("撤销成功");
             }
           })
         });
@@ -78,7 +78,7 @@
   });
 </script>
 <script type="text/html" id="tools">
-  <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="delete">删除</a>
+  <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="delete">撤销</a>
 </script>
 </body>
 </html>

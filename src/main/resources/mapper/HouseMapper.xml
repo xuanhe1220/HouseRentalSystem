@@ -17,6 +17,7 @@
 		<result column="house_detailes_img" jdbcType="VARCHAR" property="houseDetailsImg"/>
 		<result column="publisher" jdbcType="VARCHAR" property="publisher"/>
 		<result column="publish_time" jdbcType="VARCHAR" property="publishTime"/>
+		<result column="house_exist" jdbcType="VARCHAR" property="exist"/>
 	</resultMap>
 	
 	<!-- 首页信息查询 -->

@@ -29,8 +29,8 @@
             margin-right: 50px;
         }
         .pay-method img {
-            width: 60px;
-            height: 60px;
+            width: 32px;
+            height: 32px;
             margin-bottom: 10px;
         }
         .pay-method p {
@@ -48,15 +48,15 @@
     <img src="/static/img/二维码.png" alt="支付二维码">
     <div class="pay-methods">
         <div class="pay-method">
-            <img src="/static/img/APPhome-visa.png" alt="visa">
+            <img src="/static/img/visa-01.png" alt="visa">
             <p>VISA</p>
         </div>
         <div class="pay-method">
-            <img src="/static/img/微信.png" alt="wechat">
+            <img src="/static/img/微信支付.png" alt="wechat">
             <p>微信支付</p>
         </div>
         <div class="pay-method">
-            <img src="/static/img/支付宝.png" alt="alipay">
+            <img src="/static/img/支付宝支付.png" alt="alipay">
             <p>支付宝支付</p>
         </div>
     </div>

@@ -241,25 +241,6 @@
             layer = layui.layer,
             form = layui.form;
 
-        // 点击按钮触发事件
-        $('#pay-btn').on('click', function() {
-            // 弹出一个iframe层，加载二维码付款页面
-            layer.open({
-                type: 2,
-                title: '二维码付款',
-                area: ['380px', '320px'],
-                content: 'path/to/qr_code.html',
-                shadeClose: true,
-                btn: ['已完成支付'],
-                btnAlign: 'c',
-                yes: function(index, layero) {
-                    // 点击完成支付按钮触发的回调函数
-                    layer.close(index);  // 关闭弹窗
-                    // 这里可以写处理支付结果的代码
-                }
-            });
-        });
-
 		var layer_index;
         carousel.render({
             elem: "#details-image",
@@ -309,18 +290,26 @@
                 btnAlign: 'c',
                 yes: function(index, layero) {
                     // 点击完成支付按钮触发的回调函数
+                    $.post("addOrder",{id:$(".HID").val()},function(data){
+                        if(data=="OK"){
+                            layer.alert("恭喜你，预定成功！",{icon:1});
+                            $(".order-btn").addClass("layui-btn-disabled");
+                            $(".order-btn").html("你已成功预定");
+                            $(".order-btn").off("click");
+                        }
+                    });
                     layer.close(index);  // 关闭弹窗
                     // 这里可以写处理支付结果的代码
                 }
             });
-        	$.post("addOrder",{id:$(".HID").val()},function(data){
+        	/*$.post("addOrder",{id:$(".HID").val()},function(data){
         		if(data=="OK"){
     				layer.alert("恭喜你，预定成功！",{icon:1});
     				$(".order-btn").addClass("layui-btn-disabled");
     				$(".order-btn").html("你已成功预定");
     				$(".order-btn").off("click");
     			}
-        	});
+        	});*/
         });
         form.on("submit(login)",function(){
      	   $.post("login",$('#login').serialize(),function (res) {
