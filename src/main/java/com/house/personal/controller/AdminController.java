@@ -275,8 +275,21 @@ public class AdminController {
 		return result;
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	@RequestMapping("/toAddOrderPage")
 	public String toAddOrderPage() {
 		return "addorder";
+	}
+
+	/**
+	 *
+	 * @return
+	 */
+	@RequestMapping("/toAddUserPage")
+	public String toAddUserPage() {
+		return "adduser";
 	}
 }
