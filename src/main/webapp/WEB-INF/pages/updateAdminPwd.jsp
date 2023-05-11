@@ -72,7 +72,10 @@
             }
             $.post("updateAdminPwd",data.field,function (res) {
 				if(res=="OK"){
-					layer.msg("密码修改成功",{icon:1});
+					layer.msg("密码修改成功,请返回登录页面重新登录",{icon:1},function(){
+                        // 密码修改成功后返回登录页面
+                        window.location.href = "toAdminLogin";
+                    });
 					$("form")[0].reset();
 				}else if(res=="ERROR"){
 					layer.msg("原密码错误",{icon:5});

@@ -24,7 +24,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label">密码</label>
             <div class="layui-input-inline">
-                <input type="password" name="password" required lay-verify="required|pass" placeholder="密码"
+                <input type="password" name="password" required lay-verify="required" placeholder="密码"
                        autocomplete="off"
                        class="layui-input" lay-verify="pass">
             </div>
@@ -41,14 +41,14 @@
         <div class="layui-form-item">
             <label class="layui-form-label">昵称</label>
             <div class="layui-input-inline">
-                <input type="password" name="name" lay-verify="required|pass" placeholder="昵称"
+                <input type="password" name="name" lay-verify="required" placeholder="昵称"
                        autocomplete="off"
                        class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
             <div class="layui-input-block">
-                <button class="layui-btn" lay-submit lay-filter="updateAdmin">提交</button>
+                <button class="layui-btn" lay-submit lay-filter="regist">提交</button>
                 <button type="reset" class="layui-btn layui-btn-primary">重置</button>
             </div>
         </div>
@@ -64,30 +64,34 @@
             layer = layui.layer;
         form.verify({
             pass: [
-                /^[\S]{6,12}$/
-                ,'密码必须6到12位，且不能出现空格'
+                /^[\S]{11}$/
+                ,'手机号必须为11位，且不能出现空格'
             ]
         });
 
-        form.on('submit(updateAdmin)',function (data) {
-            var pwd = $("input[name='newpwd']").val();
-            var pwd2 = $("input[name='newpwdagain']").val();
-            if(pwd!=pwd2){
-                layer.msg("两次输入密码密码不一样",{icon:5});
-                $("input[name='newpwdagain']").focus();
-                return false;
-            }
-            $.post("updateAdminPwd",data.field,function (res) {
-                if(res=="OK"){
-                    layer.msg("密码修改成功",{icon:1});
-                    $("form")[0].reset();
-                }else if(res=="ERROR"){
-                    layer.msg("原密码错误",{icon:5});
-                }else{
-                    layer.msg("修改失败",{icon:5});
+        form.on('submit(regist)',function () {
+            if($("input[name='uName']").val()!=""&&$("input[name='uPassword']").val()!=""&&$("input[name='uPhoneNumber']").val()!=""&&$("input[name='uNickName']").val()!=""){
+                if($("input[name='uPhoneNumber']").val().length==11) {
+                    $.post("regist",$('.form').serialize(),function (res) {
+                        console.log(res)
+                        if(res=='OK'){
+                            layer.close(layer_index);
+                            layer.alert("注册成功",{icon:1,time:2000});
+                            $('.form')[0].reset();
+                        }else{
+                            layer.msg("注册失败,用户名以存在",{icon:5});
+                            $("input[name='username']").focus();
+                            return false;
+                        }
+                    })
+                } else {
+                    layer.msg("手机号码不存在",{icon:5});
+                    $("input[name='phonenumber']").focus();
+                    return false;
                 }
-            });
-            return false;
+            }else{
+                layer.msg("请填写所有表单");
+            }
         })
     });
 </script>

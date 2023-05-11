@@ -24,7 +24,7 @@
                 <div class="personalCenter layui-pull-right"><a href="toAdminLogin" target="_blank" style="color:#fff"><i class="layui-icon layui-icon-tree"></i>管理员</a></div>
             </c:if>
             <c:if test="${empty loginUser }">
-                <div class="operation layui-pull-right"><i class="layui-icon layui-icon-tree"></i>您好</div>
+                <div class="operation layui-pull-right"><i class="layui-icon layui-icon-tree"></i>用户</div>
             </c:if>
 
         </div>
