@@ -53,7 +53,7 @@
             }
             
             if(layEvent === 'delete'){
-            	console.log(data.hID)
+            	console.log(data.hID);
                 layer.confirm('确认删除当前数据吗？',{icon:5,shade:0.1},function(index){
                     $.post("deleteHouse",{hID:data.hID},function(success){
                     	if(success == "OK"){
@@ -70,8 +70,10 @@
     })
 </script>
 <script type="text/html" id="tools">
-    <a class="layui-btn layui-btn-xs" lay-event="edit">修改</a>
-    <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="delete">删除</a>
+    <div style="width: 80px;">
+        <a class="layui-btn layui-btn-xs" lay-event="edit">修改</a>
+        <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="delete" style="z-index: 1;">删除</a>
+    </div>
 </script>
 </body>
 </html>

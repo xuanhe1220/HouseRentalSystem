@@ -38,8 +38,9 @@
             <li class="layui-nav-item">
                 <a href="javascript:;">用户信息管理</a>
                 <dl class="layui-nav-child">
-                    <dd><a href="${pageContext.request.contextPath }/toAllUserPage" target="iframe">查看所有用户</a></dd>
-                    <dd><a href="${pageContext.request.contextPath }/toUpdateAdminPwdPage" target="iframe">管理员密码更改</a></dd>
+                    <dd><a href="${pageContext.request.contextPath }/toAddUserPage" target="iframe">添加用户</a></dd>
+                    <dd><a href="${pageContext.request.contextPath }/toAllUserPage" target="iframe">用户列表</a></dd>
+                    <%--<dd><a href="${pageContext.request.contextPath }/toUpdateAdminPwdPage" target="iframe">管理员密码更改</a></dd>--%>
                 </dl>
             </li>
         </ul>
@@ -47,8 +48,8 @@
             <li class="layui-nav-item">
                 <a href="javascript:;">房源信息管理</a>
                 <dl class="layui-nav-child">
-                    <dd><a href="${pageContext.request.contextPath }/addHouse" target="iframe">添加房源信息</a></dd>
-                    <dd><a href="${pageContext.request.contextPath }/toAllHousePage" target="iframe">所有房源信息</a></dd>
+                    <dd><a href="${pageContext.request.contextPath }/addHouse" target="iframe">添加房源</a></dd>
+                    <dd><a href="${pageContext.request.contextPath }/toAllHousePage" target="iframe">房源列表</a></dd>
                 </dl>
             </li>
         </ul>

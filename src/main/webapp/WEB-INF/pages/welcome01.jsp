@@ -34,7 +34,7 @@
 <body>
 <div class="welcome">
     <p><span class="layui-icon layui-icon-tree"></span></p>
-    <p class="wel-world">Welcome to admin center!</p>
+    <p class="wel-world">欢迎使用管理员系统！</p>
 </div>
 </body>
 </html>

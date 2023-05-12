@@ -73,7 +73,9 @@
             }
             $.post("updateUserPwd",$('form').serialize(),function (res) {
 				if(res=="OK"){
-					layer.msg("密码修改成功",{icon:1});
+					layer.msg("密码修改成功,请返回登录页面重新登录",{icon:1},function(){
+
+                    });
 					$("form")[0].reset();
 				}else{
 					layer.msg("原密码错误",{icon:5});
