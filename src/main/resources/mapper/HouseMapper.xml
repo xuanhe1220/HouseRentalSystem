@@ -34,6 +34,8 @@
 			house_image
 		FROM
 			t_house
+		WHERE
+		    house_exist='y'
 	</select>
 	
 	<!-- 房屋详细信息 -->
@@ -76,7 +78,8 @@
 			#{houseOriented},
 			#{houseDetailsImg},
 			#{publisher},
-			NOW()
+			NOW(),
+			'y'
 		)
 	</insert>
 	
@@ -114,6 +117,8 @@
 		FROM
 			t_house h
 		WHERE
+		    house_exist='y'
+		AND
 			CONCAT(
 				h.community_name,
 				h.house_desc,
@@ -122,10 +127,10 @@
 	</select>
 	
 	<select id="findHouseOrderByDesc" resultMap="BasicMap">
-		SELECT * FROM t_house h ORDER BY house_price DESC
+		SELECT * FROM t_house h where house_exist='y' ORDER BY house_price DESC
 	</select>
 	
 	<select id="findHouseOrderByAsc" resultMap="BasicMap">
-		SELECT * FROM t_house h ORDER BY house_price ASC
+		SELECT * FROM t_house h where house_exist='y' ORDER BY house_price ASC
 	</select>
 </mapper>
