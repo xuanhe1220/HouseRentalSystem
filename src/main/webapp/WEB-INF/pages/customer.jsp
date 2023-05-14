@@ -35,7 +35,7 @@
             <li class="layui-nav-item">
                 <a href="javascript:;">用户信息管理</a>
                 <dl class="layui-nav-child">
-                    <dd><a href="myorder" target="iframe">我的租房信息</a></dd>
+                    <%--<dd><a href="myorder" target="iframe">我的租房信息</a></dd>--%>
                     <dd><a href="updatepwd" target="iframe">修改我的密码</a></dd>
                 </dl>
             </li>
@@ -53,8 +53,8 @@
             <li class="layui-nav-item">
                 <a href="javascript:;">订单信息管理</a>
                 <dl class="layui-nav-child">
-                    <dd><a href="addHouse" target="iframe">我的订单</a></dd>
-                    <dd><a href="toUserRentalPage" target="iframe">租赁申请</a></dd>
+                    <dd><a href="myorder" target="iframe">我的订单</a></dd>
+                    <%--<dd><a href="toUserRentalPage" target="iframe">租赁申请</a></dd>--%>
                 </dl>
             </li>
         </ul>

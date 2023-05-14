@@ -18,8 +18,9 @@ public class House {
 	private String houseDetailsImg;
 	private String publisher;
 	private Date publishTime;
-
 	private String exist;
+	private String rentalStatus;
+
 	public int gethID() {
 		return hID;
 	}
@@ -116,6 +117,12 @@ public class House {
 	public void setExist(String exist) {
 		this.exist = exist;
 	}
+	public String getRentalStatus() {
+		return rentalStatus;
+	}
+	public void setRentalStatus(String rentalStatus) {
+		this.rentalStatus = rentalStatus;
+	}
 
 	public House(String houseDesc, String houseModel, String houseArea, String houseFloor, String houseType,
 				 int housePrice, String houseAddress, String houseImage, String communityName, String houseLinkMan,
@@ -176,6 +183,27 @@ public class House {
 		this.publishTime = publishTime;
 		this.exist = exist;
 	}
+
+	public House(int hID, String houseDesc, String houseModel, String houseArea, String houseFloor, String houseType, int housePrice, String houseAddress, String houseImage, String communityName, String houseLinkMan, String houseOriented, String houseDetailsImg, String publisher, Date publishTime, String exist, String rentalStatus) {
+		this.hID = hID;
+		this.houseDesc = houseDesc;
+		this.houseModel = houseModel;
+		this.houseArea = houseArea;
+		this.houseFloor = houseFloor;
+		this.houseType = houseType;
+		this.housePrice = housePrice;
+		this.houseAddress = houseAddress;
+		this.houseImage = houseImage;
+		this.communityName = communityName;
+		this.houseLinkMan = houseLinkMan;
+		this.houseOriented = houseOriented;
+		this.houseDetailsImg = houseDetailsImg;
+		this.publisher = publisher;
+		this.publishTime = publishTime;
+		this.exist = exist;
+		this.rentalStatus = rentalStatus;
+	}
+
 	public House() {
 	}
 }

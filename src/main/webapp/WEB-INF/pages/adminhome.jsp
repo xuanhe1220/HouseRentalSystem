@@ -27,7 +27,7 @@
                     <cite>Hello，管理员</cite>
                     <span class="layui-nav-more"></span></a>
                 <dl class="layui-nav-child layui-anim layui-anim-upbit">
-                    <dd><a href="toUpdateAdminPwdPage">修改密码</a></dd>
+                    <dd><a href="toUpdateAdminPwdPage" target="iframe">修改密码</a></dd>
                     <dd style="text-align: center;"><a href="adminSingnout">退出</a></dd>
                 </dl>
             </li>
@@ -67,7 +67,7 @@
             <li class="layui-nav-item">
                 <a href="javascript:;">系统信息管理</a>
                 <dl class="layui-nav-child">
-                    <dd><a href="${pageContext.request.contextPath }/toAllHousePage" target="iframe">日志管理</a></dd>
+                    <dd><a href="${pageContext.request.contextPath }/toLogManagementPage" target="iframe">日志管理</a></dd>
                 </dl>
             </li>
         </ul>

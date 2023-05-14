@@ -18,6 +18,7 @@
 		<result column="publisher" jdbcType="VARCHAR" property="publisher"/>
 		<result column="publish_time" jdbcType="VARCHAR" property="publishTime"/>
 		<result column="house_exist" jdbcType="VARCHAR" property="exist"/>
+		<result column="rental_status" jdbcType="VARCHAR" property="rentalStatus"/>
 	</resultMap>
 	
 	<!-- 首页信息查询 -->
