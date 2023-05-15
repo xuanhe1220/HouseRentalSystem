@@ -4,13 +4,13 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>查看所有用户</title>
+    <title>用户列表</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath }/static/layui/css/layui.css">
 </head>
 <body>
 <div class="layui-fluid" style="margin-top: 40px;">
     <fieldset class="layui-elem-field layui-field-title">
-        <legend style="font-size: 26px">所有注册用户</legend>
+        <legend style="font-size: 26px">用户列表</legend>
     </fieldset>
     <table id="allUser" lay-filter="user"></table>
 </div>
@@ -24,6 +24,7 @@
         var dt = table.render({
             elem:"#allUser",
             url:"/AllUsers",
+            toolbar: '#toolbar',
             page:true,
             cols:[[
                 {field: 'uID', title: 'UID', align: 'center'},
@@ -63,6 +64,11 @@
 <script type="text/html" id="tools">
     <a class="layui-btn layui-btn-sm" lay-event="edit">修改</a>
     <a class="layui-btn layui-btn-sm layui-btn-danger" lay-event="delete">删除</a>
+</script>
+
+<!-- 定义搜索工具栏 -->
+<script type="text/html" id="toolbar">
+
 </script>
 </body>
 </html>

@@ -10,7 +10,7 @@
 <body>
 <div class="wapper" style="width: 500px;margin-top: 40px">
     <fieldset class="layui-elem-field layui-field-title">
-        <legend style="font-size: 26px">添加用户信息</legend>
+        <legend style="font-size: 26px">添加用户</legend>
     </fieldset>
     <form class="layui-form" method="post">
         <div class="layui-form-item">

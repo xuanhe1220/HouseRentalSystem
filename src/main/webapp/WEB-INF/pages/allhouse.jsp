@@ -10,7 +10,7 @@
 <body>
 <div class="layui-fluid" style="margin-top: 40px;">
     <fieldset class="layui-elem-field layui-field-title">
-        <legend style="font-size: 26px">所有房源信息</legend>
+        <legend style="font-size: 26px">房源列表</legend>
     </fieldset>
     <table id="allHouse" lay-filter="house"></table>
 </div>
@@ -24,6 +24,7 @@
        var dt = table.render({
             elem:"#allHouse",
             url:"findAllHouse",
+            toolbar: '#toolbar',
             page:true,
             cols:[[
                 {field: 'hID', title: '序号', align: 'center'}
@@ -37,6 +38,16 @@
                 ,{field: 'houseLinkMan', title: '联系人', align: 'center'}
                 ,{field: 'communityName', title: '小区名', align: 'center'}
                 ,{field: 'houseOriented', title: '朝向', align: 'center'}
+                ,{
+                    field: 'rentalStatus',
+                    title: '租赁状态',
+                    align: 'center',
+                    templet: function(d) {
+                        var bgColor = d.rentalStatus === 'y' ? '#00ff00' : '#ff0000';
+                        var text = d.rentalStatus === 'y' ? '已租赁' : '未租赁';
+                        return '<div style="background-color: ' + bgColor + '; color: #000; font-weight: bold;">' + text + '</div>';
+                    }
+                }
                 ,{field: 'publisher', title: '发布人', align: 'center'}
                 ,{title: '操作', align: 'center',toolbar:"#tools"},
             ]]
@@ -67,6 +78,8 @@
                 });
             }
         });
+
+
     })
 </script>
 <script type="text/html" id="tools">
@@ -74,6 +87,11 @@
         <a class="layui-btn layui-btn-xs" lay-event="edit">修改</a>
         <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="delete" style="z-index: 1;">删除</a>
     </div>
+</script>
+
+<!-- 定义搜索工具栏 -->
+<script type="text/html" id="toolbar">
+
 </script>
 </body>
 </html>

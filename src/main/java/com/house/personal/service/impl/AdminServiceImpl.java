@@ -26,22 +26,18 @@ public class AdminServiceImpl implements IAdminService {
 	public List<Users> findAllUser() {
 		return service.findAllUser();
 	}
-
 	@Override
-	public List<House> findAllHouse(Page page) {
-		return service.findAllHouse(page);
-	}
-
+	public List<House> findAllHouse(Page page) { return service.findAllHouse(page); }
+	@Override
+	public List<House> findLeaseableHouse(Page page) { return service.findLeaseableHouse(page); }
 	@Override
 	public int deleteHouse(int hID) {
 		return service.deleteHouse(hID);
 	}
-
 	@Override
 	public Users findUserById(int uID) {
 		return service.findUserById(uID);
 	}
-
 	@Override
 	public int updateUser(Users users) {
 		return service.updateUser(users);
@@ -66,4 +62,5 @@ public class AdminServiceImpl implements IAdminService {
 	public int getAllOrderCount() {
 		return service.getAllOrderCount();
 	}
+
 }

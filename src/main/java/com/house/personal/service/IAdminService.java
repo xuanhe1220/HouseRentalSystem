@@ -27,6 +27,11 @@ public interface IAdminService {
 	 */
 	public List<House> findAllHouse(Page page);
 	/**
+	 * 查询所有房源信息
+	 * @return
+	 */
+	public List<House> findLeaseableHouse(Page page);
+	/**
 	 * 管理员删除房源信息
 	 * @return
 	 */

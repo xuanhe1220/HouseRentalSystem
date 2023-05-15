@@ -124,6 +124,21 @@ public class AdminController {
 		return data;
 	}
 
+	@RequestMapping("/findLeaseableHouse")
+	@ResponseBody
+	public UserHouseData findLeaseableHouse(int page, int limit) {
+		Page p = new Page();
+		p.setLimit(limit);
+		p.setPage((page - 1) * limit);
+		List<House> findAllHouse = service.findLeaseableHouse(p);
+		UserHouseData data = new UserHouseData();
+		data.setCode(0);
+		data.setCount(findAllHouse.size());
+		data.setData(findAllHouse);
+		data.setMsg("OK");
+		return data;
+	}
+
 	/**
 	 * 删除房源
 	 * 
@@ -241,7 +256,7 @@ public class AdminController {
 
 	@RequestMapping("/allOrderInfo")
 	@ResponseBody
-	public UserOrderData AllOrder(int page, int limit, HttpServletRequest request){
+	public UserOrderData AllOrder(int page, int limit){
 		Page p = new Page();
 		p.setPage((page - 1) * limit);
 		p.setLimit(limit);
@@ -292,4 +307,16 @@ public class AdminController {
 	public String toAddUserPage() {
 		return "adduser";
 	}
+
+	@RequestMapping("/toLogManagementPage")
+	public String toLogManagementPage() {
+		return "logmanagement";
+	}
+
+
+	/**
+	 * @param
+	 * @return
+	 */
+
 }

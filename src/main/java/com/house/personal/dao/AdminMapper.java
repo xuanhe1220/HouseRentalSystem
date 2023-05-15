@@ -27,6 +27,12 @@ public interface AdminMapper {
 	 * @return
 	 */
 	public List<House> findAllHouse(Page page);
+
+	/**
+	 *
+	 * @return
+	 */
+	public List<House> findLeaseableHouse(Page page);
 	
 	/**
 	 * 管理员删除房源信息
@@ -78,4 +84,6 @@ public interface AdminMapper {
 	 * @return
 	 */
 	public int getAllOrderCount();
+
+
 }

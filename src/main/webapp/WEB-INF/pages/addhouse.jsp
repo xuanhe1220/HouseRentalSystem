@@ -10,7 +10,7 @@
 <body>
 <div class="wrapper" style="width: 900px;margin-top: 40px">
     <fieldset class="layui-elem-field layui-field-title">
-        <legend style="font-size: 26px">发布房源信息</legend>
+        <legend style="font-size: 26px">添加房源</legend>
     </fieldset>
     <form id="addHouseForm" class="layui-form">
         <div class="layui-form-item">

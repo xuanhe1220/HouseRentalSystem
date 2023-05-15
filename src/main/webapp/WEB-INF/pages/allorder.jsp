@@ -19,11 +19,15 @@
   <fieldset class="layui-elem-field layui-field-title">
     <legend style="font-size: 26px">订单列表</legend>
   </fieldset>
+
   <table id="orderList" lay-filter="order"></table>
 </div>
 <script src="/static/layui/layui.js"></script>
 <script>
   layui.use(['element','form','table','util'],function () {
+    var element = layui.element;
+    var table = layui.table;
+
     var element = layui.element,
             $ = layui.jquery,
             table = layui.table,
@@ -32,6 +36,7 @@
     var dt = table.render({
       elem:"#orderList",
       url:"/allOrderInfo",
+      toolbar: '#toolbar',
       page:true,
       limit:10,
       loading:true,
@@ -75,10 +80,17 @@
         });
       }
     });
+
   });
 </script>
 <script type="text/html" id="tools">
   <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="delete">撤销</a>
 </script>
+
+<!-- 定义搜索工具栏 -->
+<script type="text/html" id="toolbar">
+
+</script>
+
 </body>
 </html>
