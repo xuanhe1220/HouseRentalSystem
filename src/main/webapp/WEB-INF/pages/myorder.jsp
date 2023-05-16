@@ -55,7 +55,7 @@
             
             if(layEvent === 'delete'){
             	console.log(data.oID)
-                layer.confirm('确认删除当前数据吗？',{icon:5,shade:0.1},function(index){
+                layer.confirm('确认撤销当前订单吗？',{icon:5,shade:0.1},function(index){
                     $.post("deleteOrder",{oID:data.oID},function(success){
                     	if(success == "OK"){
                     		obj.del();
@@ -71,7 +71,7 @@
     });
 </script>
 <script type="text/html" id="tools">
-    <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="delete">删除</a>
+    <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="delete">撤销</a>
 </script>
 </body>
 </html>

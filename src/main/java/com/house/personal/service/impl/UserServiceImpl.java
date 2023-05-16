@@ -32,4 +32,10 @@ public class UserServiceImpl implements IUserService {
 	public Users checkOldPwd(Users users) {
 		return mapper.checkOldPwd(users);
 	}
+
+	@Override
+	public Users confirmUser(Users users) {return mapper.confirmUser(users);};
+
+	@Override
+	public Users findUserIdByName(Users users){return mapper.findUserIdByName(users);};
 }

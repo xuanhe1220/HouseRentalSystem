@@ -49,10 +49,46 @@
             var tr = obj.tr;
             var currPage = dt.config.page.curr;
 
-            if(layEvent ==="edit"){
-                window.location="toAdminUpdateHousePage?hID="+data.hID;
+            if(layEvent ==="order"){
+                // 弹出一个iframe层，加载二维码付款页面
+                layer.open({
+                    type: 2,
+                    title: '确认用户信息',
+                    area: ['500px', '250px'],
+                    content: '/toConfirmUserPage',
+                    shadeClose: true,
+                    btn: ['完成预定'],
+                    btnAlign: 'c',
+                    yes: function(index, layero) {
+                        layer.ready(function() {
+                            var username = layero.find('#username').val(); // 获取用户名输入框的值
+                            var phonenumber = layero.find('#phone').val(); // 获取手机号输入框的值
+                            // 在这里可以使用username和phonenumber进行后续的操作
+                            layer.alert("用户名: " + username + "<br>手机号: " + phonenumber);
+                        });
+
+                        $.post("confirmUser",{username:username,phonenumber:phonenumber},function(data){
+                            if(data=="OK"){
+                                $.post("newOrder",{username:username},function(data){
+                                    if(data=="OK"){
+                                        layer.alert("预定成功！",{icon:1});
+                                    }else{
+                                    }
+                                })
+                            }else{
+                                layer.alert("用户名和手机号不匹配，预定失败！",{icon:1});
+                            }
+                        });
+
+                        layer.close(index);  // 关闭弹窗
+                        // 这里可以写处理支付结果的代码
+                    }
+                });
+                /*window.location="toAdminUpdateHousePage?hID="+data.hID;*/
             }
         });
+
+
 
 
     })

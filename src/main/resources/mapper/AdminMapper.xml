@@ -70,7 +70,7 @@
 
 	<!--查询所有可租赁的房源信息-->
 	<select id="findLeaseableHouse" resultMap="AllHouseMap" parameterType="com.house.personal.entity.Page">
-		select * from t_house where rental_status='n' limit #{page},#{limit}
+		select * from t_house where rental_status='n' and house_exist='y' limit #{page},#{limit}
 	</select>
 	
 	<update id="deleteHouse" parameterType="int">

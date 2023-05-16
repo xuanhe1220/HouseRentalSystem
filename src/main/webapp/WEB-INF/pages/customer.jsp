@@ -23,7 +23,7 @@
                     <cite>${loginUser.uNickName}，欢迎回来</cite>
                     <span class="layui-nav-more"></span></a>
                 <dl class="layui-nav-child layui-anim layui-anim-upbit">
-                    <dd style="text-align: center;"><a href="/updatepwd">修改密码</a></dd>
+                   <%-- <dd style="text-align: center;"><a href="/updatepwd">修改密码</a></dd>--%>
                     <hr>
                     <dd layadmin-event="logout" style="text-align: center;"><a href="signout">退出登录</a></dd>
                 </dl>

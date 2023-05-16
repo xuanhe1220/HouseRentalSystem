@@ -29,5 +29,16 @@
 		WHERE
 			u_id = #{uID}
 	</update>
+
+	<!--确认用户-->
+	<select id="confirmUser" resultMap="BasicMap" parameterType="com.house.personal.entity.Users">
+		select * from t_users where u_name = #{uName} and u_phone_number = #{uPhoneNumber}
+	</select>
+
+	<!--通过用户名查找用户-->
+	<select id="findUserIdByName" resultMap="BasicMap" parameterType="com.house.personal.entity.Users">
+		select * from t_users where u_name = #{uName}
+	</select>
+
 	
 </mapper>

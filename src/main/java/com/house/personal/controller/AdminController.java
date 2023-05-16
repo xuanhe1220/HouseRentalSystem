@@ -314,9 +314,4 @@ public class AdminController {
 	}
 
 
-	/**
-	 * @param
-	 * @return
-	 */
-
 }

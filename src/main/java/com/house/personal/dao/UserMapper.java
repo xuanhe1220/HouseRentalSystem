@@ -31,4 +31,8 @@ public interface UserMapper {
 	 * @return
 	 */
 	public Users checkOldPwd(Users users);
+
+	public Users confirmUser(Users users);
+
+	public Users findUserIdByName(Users users);
 }

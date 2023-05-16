@@ -65,4 +65,18 @@ public class UserController {
 		}
 		return "FAIL";
 	}
+	@RequestMapping("/confirmUser")
+	@ResponseBody
+	public String confirmUser(String username,String phonenumber) {
+		Users user=new Users();
+		user.setuName(username);
+		user.setuPhoneNumber(phonenumber);
+		System.out.println(username);
+		System.out.println(phonenumber);
+		Users u=service.confirmUser(user);
+		if(u!=null){
+			return "OK";
+		}
+		return "FAIL";
+	}
 }

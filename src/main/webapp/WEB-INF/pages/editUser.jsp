@@ -16,9 +16,9 @@
         <div class="layui-form-item">
             <label class="layui-form-label">用户名</label>
             <div class="layui-input-inline">
-                <input type="hidden" value="${User.uID }" name="uID"/>
+                <input type="hidden" value="${User.uID }" name="uID" />
                 <input type="text" name="uName" value="${User.uName }" required lay-verify="required" autocomplete="off"
-                       class="layui-input">
+                       class="layui-input" readonly >
             </div>
             <div class="layui-form-mid layui-word-aux"></div>
         </div>

@@ -80,6 +80,7 @@
 			#{houseDetailsImg},
 			#{publisher},
 			NOW(),
+		 	'n',
 			'y'
 		)
 	</insert>
