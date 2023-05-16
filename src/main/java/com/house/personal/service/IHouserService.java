@@ -51,4 +51,6 @@ public interface IHouserService {
 	 * @return
 	 */
 	public List<House> findHouseOrderByAsc();
+
+	public int updateHouseStatus(int hId);
 }

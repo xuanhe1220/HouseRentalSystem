@@ -61,4 +61,6 @@ public interface HouseMapper {
 	 * @return
 	 */
 	public List<House> findHouseOrderByAsc();
+
+	public int updateHouseStatus(int hId);
 }

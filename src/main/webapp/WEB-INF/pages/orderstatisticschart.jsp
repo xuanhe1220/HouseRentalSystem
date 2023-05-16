@@ -12,9 +12,9 @@
 <head>
   <meta charset="UTF-8">
   <title>订单统计</title>
-  <link rel="stylesheet" href="https://cdn.bootcss.com/layui/2.5.6/css/layui.min.css">
-  <script src="https://cdn.bootcss.com/layui/2.5.6/layui.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+  <link rel="stylesheet" href="${pageContext.request.contextPath }/static/layui/css/layui.css">
+  <script src="${pageContext.request.contextPath }/static/layui/layui.js"></script>
+  <script src="${pageContext.request.contextPath }/static/js/echarts.min.js"></script>
 </head>
 <body>
 

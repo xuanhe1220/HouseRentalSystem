@@ -60,23 +60,25 @@
                     btn: ['完成预定'],
                     btnAlign: 'c',
                     yes: function(index, layero) {
-                        layer.ready(function() {
-                            var username = layero.find('#username').val(); // 获取用户名输入框的值
-                            var phonenumber = layero.find('#phone').val(); // 获取手机号输入框的值
-                            // 在这里可以使用username和phonenumber进行后续的操作
-                            layer.alert("用户名: " + username + "<br>手机号: " + phonenumber);
-                        });
+                        var hid=data.hID;
+                        // 获取弹窗中另一个 JSP 页面的 DOM 对象
+                        var iframeWin = window[layero.find('iframe')[0]['name']];
+
+                        // 在 iframe 中查找并获取输入框的值
+                        var username = iframeWin.document.getElementById('username').value;
+                        var phonenumber = iframeWin.document.getElementById('phone').value;
 
                         $.post("confirmUser",{username:username,phonenumber:phonenumber},function(data){
                             if(data=="OK"){
-                                $.post("newOrder",{username:username},function(data){
+                                $.post("newOrder",{hid:hid,username:username},function(data){
                                     if(data=="OK"){
                                         layer.alert("预定成功！",{icon:1});
                                     }else{
+                                        layer.alert("预定失败！",{icon:2});
                                     }
                                 })
                             }else{
-                                layer.alert("用户名和手机号不匹配，预定失败！",{icon:1});
+                                layer.alert("用户名和手机号不匹配，预定失败！",{icon:2});
                             }
                         });
 

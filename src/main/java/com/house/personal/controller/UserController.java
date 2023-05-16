@@ -71,8 +71,6 @@ public class UserController {
 		Users user=new Users();
 		user.setuName(username);
 		user.setuPhoneNumber(phonenumber);
-		System.out.println(username);
-		System.out.println(phonenumber);
 		Users u=service.confirmUser(user);
 		if(u!=null){
 			return "OK";

@@ -57,4 +57,7 @@ public class HouserServiceImpl implements IHouserService {
 	public List<House> findHouseOrderByDesc() {
 		return dao.findHouseOrderByDesc();
 	}
+
+	@Override
+	public int updateHouseStatus(int hId) { return dao.updateHouseStatus(hId); }
 }

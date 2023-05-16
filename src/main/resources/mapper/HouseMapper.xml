@@ -135,4 +135,12 @@
 	<select id="findHouseOrderByAsc" resultMap="BasicMap">
 		SELECT * FROM t_house h where house_exist='y' ORDER BY house_price ASC
 	</select>
+
+	<update id="updateHouseStatus" parameterType="int">
+		UPDATE t_house
+		SET rental_status = 'y'
+		WHERE
+			h_id = #{hId}
+	</update>
+
 </mapper>

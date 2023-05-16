@@ -54,4 +54,5 @@ public class HouseController {
 			return "OK";
 		return "FAIL";
 	}
+
 }

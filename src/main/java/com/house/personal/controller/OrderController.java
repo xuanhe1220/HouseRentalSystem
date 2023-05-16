@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.house.personal.entity.*;
 import com.house.personal.service.IAdminService;
+import com.house.personal.service.IHouserService;
 import com.house.personal.service.IOrderService;
 import com.house.personal.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,9 @@ public class OrderController {
 
 	@Autowired
 	private IUserService service1;
+
+	@Autowired
+	private IHouserService service2;
 	
 	@RequestMapping("/myorder")
 	public String toOrderPage() {
@@ -40,6 +44,7 @@ public class OrderController {
 
 	@RequestMapping("/toConfirmUserPage")
 	public String toConfirmUserPage() {return "confirmuser";}
+
 	@RequestMapping("/addOrder")
 	@ResponseBody
 	public String addOrder(String id,HttpServletRequest request) {
@@ -51,6 +56,7 @@ public class OrderController {
 			order.setuID(u.getuID());
 			int n = sevice.addOrder(order);
 			if(n>0) {
+				service2.updateHouseStatus(Integer.parseInt(id));
 				return "OK";
 			}
 		} catch (NumberFormatException e) {
@@ -61,19 +67,23 @@ public class OrderController {
 
 	@RequestMapping("/newOrder")
 	@ResponseBody
-	public String newOrder(String hid,String uname,HttpServletRequest request) {
+	public String newOrder(Integer hid,String username,HttpServletRequest request) {
 		Admin admin = (Admin) request.getSession().getAttribute("Admin");
 		try {
 			Order order = new Order();
 			Users user=new Users();
-			user.setuName(uname);
-			order.sethID(Integer.parseInt(hid));
+			user.setuName(username);
+			order.sethID(hid);
 			order.setOrderUser(admin.getUsername());
-			order.setuID(service1.findUserIdByName(user).getuID());
-			int n = sevice.addOrder(order);
-			if(n>0) {
-				return "OK";
+			if(service1.findUserIdByName(user)!=null){
+				order.setuID(service1.findUserIdByName(user).getuID());
+				int n = sevice.addOrder(order);
+				if(n>0) {
+					service2.updateHouseStatus(hid);
+					return "OK";
+				}
 			}
+
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		}
